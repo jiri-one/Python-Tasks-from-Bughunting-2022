@@ -13,6 +13,7 @@ from typing import Dict, Any, List
 def modify_environ(new_variables: Dict[str, str]):
     """A context manager for temporarily modifying os.environ and then reverting it."""
     environ_backup = os.environ.copy()
+    os.environ.clear()
     os.environ.update(new_variables)
     try:
         yield
