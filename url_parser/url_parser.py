@@ -52,15 +52,15 @@ def handle_url(url=None):
     """
 
     url = urlparse(url)
-    scheme = url.scheme
+    scheme = str(url.scheme)
 
     if scheme in ("ftp", "nfs"):
         return ProtocolHandler.fuse
-    elif scheme in ("https"):
-        return ProtocolHandler.https
     elif scheme in ("http", "webdav"):
         return ProtocolHandler.curl
-    elif scheme in '':
+    elif scheme in ("https"):
+        return ProtocolHandler.https
+    else:
         return ProtocolHandler.unknown
 
 
