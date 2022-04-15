@@ -34,9 +34,6 @@ class FilesCounter(object):
     Class representing object counting files under a certain path.
     """
 
-    _files = list()
-    _path = None
-
     def __init__(self, path, recurse=True):
         """
         Constructor.
@@ -45,6 +42,9 @@ class FilesCounter(object):
         :param recurse: if to look for files recursively in sub-directories
         :return: new object
         """
+        self._files = list()
+        self._path = None
+
         if not os.path.isdir(path):
             raise ValueError("%s is not a directory!", path)
 
