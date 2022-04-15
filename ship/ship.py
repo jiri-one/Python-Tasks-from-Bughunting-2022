@@ -47,8 +47,8 @@ class Direction(Enum):
 
     def rotate(self, rotation):
         if rotation.type == "R":
-            return self - rotation
-        return self + rotation
+            return self + rotation
+        return self - rotation
 
 
 class Ship:
@@ -85,7 +85,7 @@ class Ship:
         self.y = self.y + delta[1] * instruction.value
 
     def parse_instructions(self, instruction):
-        if instruction.type in ("R", "E"):
+        if instruction.type in ("R", "L"):
             self.rotate(instruction)
         elif instruction.type == "F":
             self.go_forward(instruction)
